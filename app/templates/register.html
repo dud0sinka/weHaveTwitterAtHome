@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h1>Create an Account</h1>
+<form method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" pattern="^[a-zA-Z0-9_]{3,16}$"
+     required title="Username can only contain letters, numbers, and underscores, and must be between 3 to 16 characters long.">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required title="Please enter a valid email address">     
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+    <div id="password-strength-container" style="margin-top: 10px; width: 100%; background-color: #eee; height: 10px; border-radius: 5px; overflow: hidden;">
+        <div id="password-strength-bar" style="height: 100%; width: 0%;"></div>
+    </div>
+    <p id="password-strength-text" style="margin-top: 5px; font-weight: bold;"></p>
+
+    <input type="text" name="honeypot" style="display:none;">
+    <button type="submit">Register</button>
+</form>
+<div class="form-footer">
+    Already have an account? <a href="{{ url_for('routes.login') }}">Login here</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function calculateEntropy(password) {
+        let pool = 0;
+        if (/[a-z]/.test(password)) {
+            pool += 26;
+        }
+        if (/[A-Z]/.test(password)) {
+            pool += 26;
+        }
+        if (/[0-9]/.test(password)) {
+            pool += 10;
+        }
+        if (/[^A-Za-z0-9]/.test(password)) {
+            pool += 32;
+        }
+        if (pool === 0) {
+            return 0;
+        }
+        return password.length * Math.log2(pool);
+    }
+
+    function updateStrengthBar() {
+        const password = document.getElementById("password").value;
+        const entropy = calculateEntropy(password);
+
+        const maxEntropy = 128;
+        const widthPercentage = Math.min((entropy / maxEntropy) * 100, 100);
+
+        const strengthBar = document.getElementById("password-strength-bar");
+        const strengthText = document.getElementById("password-strength-text");
+
+        strengthBar.style.width = widthPercentage + "%";
+
+        let color = "#ff0000";
+        let label = "Very Weak";
+        if (entropy >= 128) {
+            color = "#008000";
+            label = "Very Strong";
+        } else if (entropy >= 60) {
+            color = "#9acd32";
+            label = "Strong";
+        } else if (entropy >= 36) {
+            color = "#ffa500";
+            label = "Moderate";
+        } else if (entropy >= 28) {
+            color = "#ff4500";
+            label = "Weak";
+        } else {
+            color = "#ff0000";
+            label = "Very Weak";
+        }
+
+        strengthBar.style.backgroundColor = color;
+        strengthText.innerText = "Password Entropy: " + entropy.toFixed(2) + " bits (" + label + ")";
+    }
+
+    document.getElementById("password").addEventListener("input", updateStrengthBar);
+</script>
+{% endblock %}

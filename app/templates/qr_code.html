@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Scan QR Code{% endblock %}
+
+{% block content %}
+<h1>Scan the QR Code</h1>
+<div class="qr-code">
+    <img src="data:image/png;base64,{{ qr_image }}" alt="QR Code">
+</div>
+<p class="instructions">Open the Google Authenticator app and scan this QR code to enable two-factor authentication.</p>
+<div class="form-footer">
+    <a href="{{ url_for('routes.login') }}" class="back-button">Back to Login</a>
+</div>
+{% endblock %}

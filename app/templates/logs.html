@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="title">Login Attempts</h1>
+
+    <div class="section">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>IP Address</th>
+                    <th>Success</th>
+                    <th>User Agent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.login_attempt_timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td>{{ log.ip }}</td>
+                    <td>{{ 'Yes' if log.success else 'No' }}</td>
+                    <td>{{ log.user_agent | e }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="buttons-container">
+        <form action="{{ url_for('routes.home') }}" method="GET">
+            <button type="submit">Back to Home</button>
+        </form>
+    </div>
+{% endblock %}

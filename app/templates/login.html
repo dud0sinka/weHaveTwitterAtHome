@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h1>Login to Your Account</h1>
+<form method="POST">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required title="Please enter a valid email address">  
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="2FA">2FA code</label>
+    <input type="2FA" id="2FA" name="2FA" pattern="[0-9]{6}" required title="Please enter a valid 2FA code">
+
+    <input type="text" name="honeypot" style="display:none;">
+    <button type="submit">Login</button>
+</form>
+<div class="form-footer">
+    Don't have an account? <a href="{{ url_for('routes.register') }}">Register here</a>
+    <p>Forgot your password or don't have access to your 2FA app? <a href="{{ url_for('routes.forgot_password') }}">Reset here</a></p>
+</div>
+{% endblock %}

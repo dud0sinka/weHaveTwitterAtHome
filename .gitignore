@@ -1,0 +1,19 @@
+# Environment Variables (Secrets)
+.env
+
+# SSL Certificates (Sensitive Keys)
+*.pem
+*.key
+/etc/nginx/certs/*.pem
+
+# Docker & Build Files
+__pycache__/
+*.pyc
+*.pyo
+*.db
+.DS_Store
+docker-compose.override.yml
+
+# Virtual Environment
+venv/
+
