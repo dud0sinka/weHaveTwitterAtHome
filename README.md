@@ -2,8 +2,6 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-  </a>
 
 <h1 align="center">Flask Dockerized Web Application</h3>
 
@@ -16,7 +14,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://imgur.com/a/Ixx4TYu)
+![Image](https://github.com/user-attachments/assets/a12546cd-ee07-414a-a1bc-bfc98dc15d4e)
 
 This project is a Flask-based messaging application containerized with Docker and secured with Nginx as a reverse proxy. It includes user authentication, two-factor authentication (TOTP), password recovery, and PostgreSQL database support. The application follows security best practices, ensuring input validation, data sanitization, and logging for login attempts.
 
@@ -24,10 +22,11 @@ This project is a Flask-based messaging application containerized with Docker an
 
 ### Built With
 
-* [![Flask][Flask]][Flask-url]
-* [![Docker][Docker]][Docker-url]
-* [![Nginx][Nginx]][Nginx-url]
-* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
+- ![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask) [Flask](https://flask.palletsprojects.com/en/stable/)
+- ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white) [Docker](https://www.docker.com/)
+- ![Nginx](https://img.shields.io/badge/Nginx-269539?style=flat&logo=nginx&logoColor=white) [Nginx](https://nginx.org/)
+- ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white) [PostgreSQL](https://www.postgresql.org/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,11 +99,9 @@ Contributions are welcome! Please follow these steps:
 <!-- CONTACT -->
 ## Contact
 
-Serhii - [@twitter_handle](https://twitter.com/twitter_handle) - email@example.com
+**Gmail** – [kravtsov2109@gmail.com](mailto:kravtsov2109@gmail.com)
 
-LinkedIn - 
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+**LinkedIn** – [Serhii Kravtsov](https://www.linkedin.com/in/serhii-kravtsov-/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
