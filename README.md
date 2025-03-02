@@ -103,5 +103,7 @@ Contributions are welcome! Please follow these steps:
 
 **LinkedIn** – [Serhii Kravtsov](https://www.linkedin.com/in/serhii-kravtsov-/)
 
+**Facebook** – [Serhii Kravtsov](https://www.facebook.com/dud0sinka/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
